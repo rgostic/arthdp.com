@@ -1,0 +1,7 @@
+@function c($layer) {
+    @if not map-has-key($colors, $layer) {
+        @error 'There is no layer named `#{$layer}` in $colors. '
+            + 'Layer should be one of #{map-keys($colors)}.';
+    }
+    @return map-get($colors, $layer);
+}

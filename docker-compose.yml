@@ -1,0 +1,36 @@
+version: "3"
+services:
+  server:
+    image: planitadvertising/lamp-ubuntu-php7.1:server
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+      - ./bootstrap/vhosts:/etc/apache2/sites-enabled-custom
+    ports:
+      - "${SERVER_PORT:-80}:80"
+      - "${SERVER_PORT_SSL:-443}:443"
+    environment:
+      - DOCKER_VAR_DOCUMENT_ROOT=/var/www/html
+    networks:
+      - lamp_net
+  db:
+    image: mariadb:latest
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+     - mysqldata:/var/lib/mysql
+    networks:
+      lamp_net:
+        aliases:
+          - mysql
+    networks:
+      - lamp_net
+networks:
+  lamp_net:
+    driver: "bridge"
+volumes:
+  mysqldata:
+    driver: "local"
+    

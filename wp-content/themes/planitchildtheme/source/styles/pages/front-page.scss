@@ -1,0 +1,93 @@
+html {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+}
+main {
+  padding: 18px 9px;
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .art-wrapper {
+    padding: 30px 15px;
+    
+    @media only screen and (min-width: 800px) {
+      padding: 60px 15px;
+    }
+    
+    svg {
+      margin: 0 auto;
+      display: block;
+      @media only screen and (min-width: 500px) {
+        max-width: 80%;
+      }
+      @media only screen and (min-width: 800px) {
+        max-width: 60%;
+      
+      }
+    }
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    color: #fff;
+    text-align: center;
+    text-transform: initial;
+    padding: 0;
+    margin: 0;
+  }
+  h1 {
+    line-height: 2;
+    font-family: "Tachyon", serif;    
+    font-size: clamp(100%, 5vw, 56px);
+    letter-spacing: 1px;
+    position: relative;
+   
+
+    span {
+      position: relative;
+      transition: all 1s ease-in-out;
+      bottom: 0;
+
+      &:hover {
+        text-shadow: 3px 3px 1px grey;      
+        bottom: 10px;
+      }
+    }
+
+    span:first-of-type:hover {
+      
+    }    
+  }
+  h2 {
+    font-family: "Dharma Gothic E", serif;
+    line-height: 1;
+    font-size: clamp(100%, 6vw, 64px);
+    letter-spacing: clamp(7px, calc(3px + 2vw), 15px);    
+    display: inline;
+    width: unset;
+  }
+
+  h5 {
+    margin-top: auto;
+    padding-top: 15px;
+    font-family: "Unibody 8 Pro", serif;    
+    font-size: clamp(100%, 3vw, 25px);
+  }
+  h6 {
+    font-family: "Unibody 8 Pro", serif;
+    font-size: clamp(9px, 2vw, 15px);
+  }
+
+  .social-wrapper {
+    display: flex;
+    justify-content: center;
+    img {
+      margin: clamp(10px, 2.5vw, 25px) 5px;
+      width: clamp(30px, 4vw, 50px);
+    }
+
+  }
+}

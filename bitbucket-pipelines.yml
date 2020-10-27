@@ -1,0 +1,55 @@
+image: planitadvertising/deploy-node:latest
+
+services: &services
+  - docker
+
+clone:
+  depth: 1
+
+caches: &caches
+  - npm-main-node-modules
+
+s1: &script_set_remote_env_variables sh $BITBUCKET_CLONE_DIR/pipelines/set-remote-env-variables.sh > $BITBUCKET_CLONE_DIR/pipelines/remote-deploy.sh
+s2: &script_compose_remote_deploy cat $BITBUCKET_CLONE_DIR/pipelines/deploy-with-git.sh >> $BITBUCKET_CLONE_DIR/pipelines/remote-deploy.sh
+s3: &script_remote_deploy_code cat $BITBUCKET_CLONE_DIR/pipelines/remote-deploy.sh | ssh $SERVER_USER@$SERVER_HOST /bin/bash
+s4: &script_remote_deploy_static_assets sh $BITBUCKET_CLONE_DIR/pipelines/deploy-static-assets.sh
+
+pipelines:
+  branches:
+    dev:
+      - step:
+          name: Deploy Updates
+          services: *services
+          caches: *caches
+          deployment: staging
+          script:
+            - export DEPLOY_PATH=$DEPLOY_PATH
+            - export SERVER_USER=$SERVER_USER
+            - export SERVER_HOST=$SERVER_HOST
+            - *script_set_remote_env_variables
+            - *script_compose_remote_deploy
+            - *script_remote_deploy_code
+            - *script_remote_deploy_static_assets
+  tags:
+    'release-*':
+      - step:
+          name: 'Automatic First Step'
+          script:
+            - echo 'Helm, Warp One, Engage!'
+      - step:
+          name: Deploy Updates
+          trigger: manual
+          services: *services
+          caches: *caches
+          deployment: production
+          script:
+            - export DEPLOY_PATH=$DEPLOY_PATH
+            - export SERVER_USER=$SERVER_USER
+            - export SERVER_HOST=$SERVER_HOST
+            - *script_set_remote_env_variables
+            - *script_compose_remote_deploy
+            - *script_remote_deploy_code
+            - *script_remote_deploy_static_assets
+definitions:
+  caches:
+    npm-main-node-modules: $BITBUCKET_CLONE_DIR/$TASK_RUNNER_PATH/node_modules

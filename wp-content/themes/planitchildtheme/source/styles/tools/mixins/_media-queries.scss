@@ -1,0 +1,13 @@
+@mixin media-hover {
+    &:hover {
+        html:not(.mobile) & {
+            @content;
+        }
+    }
+}
+
+@mixin media-tester {
+    html:not(.mobile) {
+        @content;
+    }
+}

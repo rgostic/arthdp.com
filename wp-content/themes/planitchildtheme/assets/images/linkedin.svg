@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_307" data-name="Rectangle 307" class="cls-1" width="30" height="30" transform="translate(0 0)"/>
+    </clipPath>
+  </defs>
+  <g id="linked_in" data-name="linked in" transform="translate(0 0.02)">
+    <g id="linked_in-2" data-name="linked in" class="cls-2" transform="translate(0 -0.02)">
+      <path id="Path_2014" data-name="Path 2014" class="cls-3" d="M27.124,0H2.7A2.7,2.7,0,0,0,0,2.7V27.124a2.7,2.7,0,0,0,2.7,2.7H27.124a2.7,2.7,0,0,0,2.7-2.7V2.7a2.7,2.7,0,0,0-2.7-2.7M9.229,25.75a.789.789,0,0,1-.789.789H5.1a.789.789,0,0,1-.789-.789V11.743a.789.789,0,0,1,.789-.789H8.44a.789.789,0,0,1,.789.789ZM6.769,9.635A3.178,3.178,0,1,1,9.947,6.457,3.178,3.178,0,0,1,6.769,9.635M26.695,25.82a.718.718,0,0,1-.718.718H22.385a.718.718,0,0,1-.718-.718V19.246c0-.984.289-4.294-2.561-4.294-2.21,0-2.662,2.272-2.748,3.287V25.82a.718.718,0,0,1-.718.718H12.165a.718.718,0,0,1-.718-.718V11.68a.718.718,0,0,1,.718-.718h3.467a.718.718,0,0,1,.718.718v1.226c.82-1.234,2.038-2.178,4.63-2.178,5.747,0,5.708,5.364,5.708,8.315Z" transform="translate(-0.023 0.1)"/>
+    </g>
+  </g>
+</svg>

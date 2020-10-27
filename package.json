@@ -1,0 +1,47 @@
+{
+  "name": "planitchildtheme",
+  "version": "0.1.0",
+  "description": "Planit Gutenberg Starter",
+  "main": "index.js",
+  "scripts": {
+    "development": "webpack --colors --progress --hide-modules --env.development",
+    "production": "webpack --colors --progress --hide-modules --env.production",
+    "watch": "webpack --colors --progress --hide-modules --env.development --watch",
+    "sync": "browser-sync start --proxy https://planitchildtheme.docker --files 'wp-content/themes/planitchildtheme/assets/**/*.css' --files 'wp-content/themes/planitchildtheme/**/*.php' --no-open --https"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:planitagency/planitchildtheme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^8.2.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "glob": "^7.1.2",
+    "js-cookie": "^2.2.0",
+    "lodash.debounce": "^4.0.8",
+    "lodash.throttle": "^4.1.1",
+    "minireset.css": "^0.0.3",
+    "node-sass": "^4.8.3",
+    "postcss-loader": "^2.1.3",
+    "purgecss-webpack-plugin": "^0.22.0",
+    "sass-loader": "^6.0.7",
+    "svg-sprite-loader": "^3.7.3",
+    "svgo": "^1.0.5",
+    "svgo-loader": "^2.1.0",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack": "^3.11.0"
+  },
+  "browserslist": [
+    ">0.25%",
+    "ie >= 10"
+  ]
+}

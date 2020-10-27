@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+
+# set environment variables for dev or ci
+export SERVER_PORT=${SERVER_PORT:-80}
+export SERVER_PORT_SSL=${SERVER_PORT_SSL:-443}
+export SERVER_FPM_PORT=${SERVER_FPM_PORT:-9000}
+export DB_PORT=${DB_PORT:-3306}
+export NON_SUDO_USER=planit
+
+COMPOSE="docker-compose"
+
+if [ "$1" == "test" ]; then
+    shift 1
+    $COMPOSE run \
+        --rm \
+        test \
+        "$@"
+    exit 0
+fi
+
+if [ "$1" == "bash" ]; then
+    shift 1
+    user=${1-planit}
+    $COMPOSE exec \
+        -u $user \
+        server \
+        bash
+    exit 0
+fi
+
+if [ "$1" == "supervisor" ]; then
+    shift 1
+    $COMPOSE exec -T \
+        server \
+        supervisorctl "$@"
+    exit 0
+fi
+
+if [ "$1" == "wp" ]; then
+    shift 1
+    $COMPOSE exec -T \
+        -u $NON_SUDO_USER \
+        server \
+        ./wp-cli.phar "$@"
+    exit 0
+fi
+
+if [ "$1" == "composer" ]; then
+    shift 1
+    $COMPOSE exec -T \
+        -u $NON_SUDO_USER \
+        server \
+        composer "$@"
+    exit 0
+fi
+
+if [ "$1" ==  "phpunit" ]; then
+    shift 1
+    $COMPOSE exec -T \
+        -u $NON_SUDO_USER \
+        server \
+        ./vendor/bin/phpunit "$@"
+    exit 0
+fi
+
+if [ "$1" == "npm" ]; then
+    shift 1
+    $COMPOSE exec -T \
+        -u $NON_SUDO_USER \
+        server \
+        npm "$@"
+    exit 0
+fi
+
+if [ "$1" == "yarn" ]; then
+    shift 1
+    $COMPOSE exec -T \
+        -u $NON_SUDO_USER \
+        server \
+        yarn "$@"
+    exit 0
+fi
+
+if [ "$1" == "gulp" ]; then
+    shift 1
+    $COMPOSE exec -T \
+        -u $NON_SUDO_USER \
+        server \
+        ./node_modules/.bin/gulp "$@"
+    exit 0
+fi
+
+if [ $# -gt 0 ]; then
+    $COMPOSE "$@"
+else
+    $COMPOSE ps
+fi

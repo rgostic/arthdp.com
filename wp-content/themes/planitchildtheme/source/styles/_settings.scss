@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+$theme_root: '/wp-content/themes/planitchildtheme';
+
+$colors: (
+    white: #fff,
+    black: #000,
+);
+
+$font-one: 'Roboto', sans-serif;
+
+$siteMaxWidth: rem(1300);
+
+$gutterMobile: 30px;
+$gutterDesktop: calc(8.33333% + 30px);
+
+$headerHeightMobile: 64px;
+$headerHeightDesktop: 154px;
+
+$directions: (
+    top,
+    right,
+    bottom,
+    left,
+);
+
+// mobile first - font-size, font-family, line-height, padding-bottom
+$headings: (
+    1: 38px 75px $font-one 48px 95px 20px 30px,
+    2: 20px 34px $font-one 30px 44px 15px 25px,
+    3: 24px 50px $font-one 34px 65px 10px 14px,
+    4: 18px 35px $font-one 26px 50px 10px 14px,
+    5: 18px 24px $font-one 22px 34px 10px 10px,
+    6: 16px 18px $font-one 20px 26px 10px 10px
+);
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    lg-alt: 1024px,
+    xl: 1200px,
+    xxl: 1400px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1300px,
+  xxl: 1500px
+);
+
+$body-font-size: 16px;

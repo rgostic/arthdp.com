@@ -1,0 +1,295 @@
+$blockMarginMobile: 50px;
+$blockMarginDesktop: 100px;
+
+.block {
+	margin-bottom: $blockMarginMobile;
+	margin-top: $blockMarginMobile;
+	@include media-breakpoint-up(lg) {
+	margin-bottom: $blockMarginDesktop;
+	margin-top: $blockMarginDesktop;
+	}
+
+	&:first-of-type {
+		margin-top: 0;
+
+		// in case no hero
+		&:not([class*='hero']) {
+			@include media-breakpoint-down(md) {
+			padding-top: rem(30);
+			}
+		}
+	}
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
+	&-nav {
+		position: fixed;
+		right: rem(20);
+		top: 50%;
+		display: none;
+		transform: translateY(-50%);
+		z-index: 10;
+		@include media-breakpoint-down(md) {
+		display: none !important;
+		}
+
+		&_item {
+			background-color: darken(c(white), 10%);
+			border-radius: rem(2);
+			cursor: pointer;
+			height: rem(48);
+			opacity: 1;
+			width: rem(4);
+			transition: all .5s;
+			margin-bottom: rem(10);
+
+			&:hover {
+				background-color: c(black);
+				opacity: .5;
+			}
+			
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			&.block-active {
+				background-color: c(black);
+				cursor: default;
+			}
+		}
+	}
+}
+
+// wp-admin styles
+.wp-block {
+	// border: rem(10) solid c(gray);
+	margin-bottom: rem(100);
+	max-width: none;
+
+	.description {
+		font-size: rem(14) !important;
+		line-height: rem(16) !important;
+		margin-top: rem(10);
+	}
+
+	&.editor-post-title__block {
+		margin-bottom: rem(50);
+	}
+
+	@for $i from 1 through 6 {
+	    h#{$i} {
+	        @extend .h#{$i};
+	    }
+	}
+
+	// main page title
+	&.editor-post-title__block {
+
+		textarea {
+			@extend .h1;
+		}
+	}
+
+	input:not([type="checkbox"]):not([type="radio"]),
+	textarea {
+		border: rem(1) solid c(black);
+		border-radius: rem(4);
+	}
+
+	// hero
+	.hero-layout__5050 .hero-images {
+		margin-top: 0;
+	}
+
+	// wysiwyg
+	.mce-edit-area {
+		padding: rem(15);
+	}
+
+	.wp-editor-wrap {
+
+		&.html-active {
+
+			.quicktags-toolbar {
+				display: none;
+			}
+		}
+
+		.wp-editor-tools {
+			align-items: flex-end;
+			display: flex;
+
+			.wp-editor-tabs {
+				margin-left: auto;
+			}
+		}
+	}
+
+	.acf-fields {
+
+		ul {
+
+			li {
+				padding: 0;
+
+				&:before {
+					display: none;
+				}
+			}
+		}
+
+		input,
+	    select,
+	    textarea,
+	    label,
+	    p,
+	    li {
+	        color: c(black);
+	        font-family: $font-one;
+	        font-weight: 300;
+	        font-size: rem(16);
+	        line-height: rem(24);
+	    }
+
+	    label {
+	    	font-weight: 700;
+	    }
+	}
+
+	// gallery
+	.acf-gallery {
+
+		.acf-gallery-side-data {
+			max-height: rem(293);
+		}
+	}
+
+	// relationship
+	.acf-relationship .list {
+
+		ul {
+			list-style: none;
+
+			li {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.acf-input-append {
+		min-height: rem(41);
+	}
+
+	.acf-icon {
+		color: c(black);
+		text-decoration: none;
+	}
+
+	// preview
+	.acf-block-preview {
+
+		.arrive {
+			opacity: 1 !important;
+			transform: none !important
+		}
+	}
+
+	.acf-checkbox-list {
+		padding: 0;
+	}
+
+	.acf-input {
+
+		input {
+
+			&:not([type=checkbox]),
+			&:not([type=radio]),
+			&:not([type=submit]) {
+				padding: rem(10);
+
+				&:focus {
+					box-shadow: none;
+				}
+			}
+		}
+	}
+
+	input {
+
+		&:not([type=checkbox]),
+		&:not([type=radio]),
+		&:not([type=submit]) {
+			padding: rem(10);
+
+			&:focus {
+				box-shadow: none;
+			}
+		}
+
+		&[type="checkbox"] {
+
+			&:checked {
+
+				&:before {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.wp-block-freeform.block-library-rich-text__tinymce {
+
+	a {
+		color: c(black);
+	}
+
+	blockquote,
+	blockquote p {
+		box-shadow: none;
+		border-left: 0;
+		padding-left: 0;
+		font-size: rem(50);
+		line-height: rem(65);
+		padding-bottom: rem(14);
+	}
+}
+
+.editor-block-list__layout {
+
+	a:not(.button) {
+		color: c(black) !important;
+	}
+}
+
+>.block-editor__typewriter>div>.block-editor-writing-flow>.block-editor-writing-flow__click-redirect {
+	height: 0;
+    min-height: 0;
+}
+
+.block-list-appender>.block-editor-inserter {
+	margin-bottom: rem(100);
+}
+
+// @import 'anchor-link-sections';
+// @import 'columns';
+// @import 'cta-bar';
+// @import 'hero';
+// @import 'stats';
+// @import 'gallery';
+// @import 'feature';
+// @import 'full-width-image';
+// @import 'full-width-slider';
+// @import 'heading-columns';
+// @import 'image-collage';
+// @import 'info-grid';
+// @import 'milestones';
+// @import 'projects';
+// @import 'project-hero';
+// @import 'project-team';
+// @import 'related-projects';
+// @import 'simple-hero';
+// @import 'text-ctas';
+// @import 'team-grid';
