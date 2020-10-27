@@ -28,12 +28,6 @@ wp-content/uploads/
 wp-content/themes/twenty*
 !wp-content/themes/twentytwenty
 
-wp-content/themes/planitchildtheme/assets/styles
-wp-content/themes/planitchildtheme/assets/scripts
-wp-content/themes/planitchildtheme/assets/markup
-wp-content/themes/planitchildtheme/assets/styles/main.*
-wp-content/themes/planitchildtheme/assets/scripts/main.*
-wp-content/themes/planitchildtheme/assets/scripts/icons.*
 
 
 # These are some examples of commonly ignored file patterns.
