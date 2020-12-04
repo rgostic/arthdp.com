@@ -90,9 +90,13 @@ $insta_icon_url = get_stylesheet_directory_uri() . '/assets/images/instagram.svg
 	<h2>Generative Craft</h2>
 	<h5>A. M. Zellhofer</h5>
 		<div class="social-wrapper">
-			<img src="<?php echo $insta_icon_url; ?>" alt="ArtHDP Instagram">
-			<img src="<?php echo $linkedin_icon_url; ?>" alt="ArtHDP Linkedin">
-		</div>
+      <a target="_blank" href="https://www.instagram.com/ten_psi/">
+        <img src="<?php echo $insta_icon_url; ?>" alt="ArtHDP Instagram">
+      </a>
+			<a target="_blank" href="https://www.linkedin.com/in/annamayzellhofer/">
+			  <img src="<?php echo $linkedin_icon_url; ?>" alt="ArtHDP Linkedin">
+		  </a>
+    </div>
 	<h6>Copyright &copy;2020 arthdp.com</h6>
 </main><!-- #site-content -->
 
